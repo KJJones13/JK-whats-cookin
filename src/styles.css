@@ -8,5 +8,32 @@ body {
 
 header {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  background: transparent;
+  width: 150px;
+  height: 75px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column-reverse;
+  background-image: url(https://spoonacular.com/recipeImages/595736-556x370.jpg);
+  background-size: cover;
+  height: 500px;
 }
