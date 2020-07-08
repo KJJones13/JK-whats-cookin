@@ -48,11 +48,33 @@ describe ("Users", function() {
   })
 
   it ("should be able to add favorite recipes to a list", function() {
-    //1
+    user.addRecipe(recipe1)
 
-    //2
+    expect(user.favoriteRecipes.length).to.deep.equal(1);
+  })
 
-    //3
-    expect(user.addRecipe())
+  it ("should be able to favorite multiple recipes", function() {
+    user.addRecipe(recipe1);
+    user.addRecipe(recipe2);
+
+    expect(user.favoriteRecipes.length).to.deep.equal(2);
+  })
+
+  it ("should be able to remove a recipe from the favorites list", function() {
+    user.addRecipe(recipe1);
+    user.addRecipe(recipe2);
+    user.addRecipe(recipe3)
+    user.removeRecipe(recipe2);
+
+    expect(user.favoriteRecipes).to.deep.equal([recipe1, recipe3]);
+  })
+
+  it ("should add/remove favorites based on the contents of the favorite recipes list", function() {
+    user.favoriteRecipe(recipe1)
+    user.favoriteRecipe(recipe2)
+    user.favoriteRecipe(recipe3)
+    user.favoriteRecipe(recipe2)
+
+    expect(user.favoriteRecipes).to.deep.equal([recipe1, recipe])
   })
 })
