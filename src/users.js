@@ -1,13 +1,14 @@
 class Users {
   constructor() {
     this.favoriteRecipes = [];
+    this.recipesToCook = [];
   }
 
-  addRecipe(recipe) {
+  addToFav(recipe) {
     this.favoriteRecipes.push(recipe)
   }
 
-  removeRecipe(recipe) {
+  removeFromFav(recipe) {
     this.favoriteRecipes.forEach((favRecipe) => {
       if (favRecipe === recipe) {
         this.favoriteRecipes.splice(this.favoriteRecipes.indexOf(favRecipe), 1)
@@ -17,10 +18,14 @@ class Users {
 
   favoriteRecipe(recipe) {
     if (this.favoriteRecipes.includes(recipe)) {
-      this.removeRecipe(recipe);
+      this.removeFromFav(recipe);
     } else {
-      this.addRecipe(recipe);
+      this.addToFav(recipe);
     }
+  }
+
+  addToCook(recipe) {
+    this.recipesToCook.push(recipe);
   }
 }
 
