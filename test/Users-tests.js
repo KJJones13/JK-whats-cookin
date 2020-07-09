@@ -87,4 +87,20 @@ describe ("Users", function() {
 
     expect(user.recipesToCook.length).to.deep.equal(1);
   });
+
+  it ("should be able to filter favorite recipes", function() {
+    user.favoriteRecipe(recipe1)
+    user.favoriteRecipe(recipe2)
+    user.favoriteRecipe(recipe3)
+
+    expect(user.filterFavRecipes("snack")).to.deep.equal([recipe1]);
+  });
+
+  it ("should be able to filter favorite recipes", function() {
+    user.addToCook(recipe1)
+    user.addToCook(recipe2)
+    user.addToCook(recipe3)
+
+    expect(user.filterToCook("sauce")).to.deep.equal([recipe3]);
+  });
 });
