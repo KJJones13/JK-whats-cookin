@@ -1,37 +1,23 @@
 const chai = require("chai");
 const expect = chai.expect;
-const Users = require("../src/users");
-const usersData = require("../data.users")
+const User = require("../src/User");
+const recipeData = require("../data/recipes")
 
 describe ("Users", function() {
   let user, recipe;
   beforeEach(function () {
-    //Describe variables used in test here!
-    user = new Users();
-    recipe1 =
-    recipe2 = {
-      "id": 678353,
-      "tags": [
-        "lunch",
-        "main course",
-        "main dish",
-        "dinner"
-      ]
-    }
-    recipe3 = {
-      "id": 412309,
-      "tags": [
-        "sauce"
-      ]
-    }
+    user = new User();
+    recipe1 = recipeData[0]
+    recipe2 = recipeData[1]
+    recipe3 = recipeData[2]
   });
 
   it ("should be a function", function() {
-    expect (Users).to.be.a("function");
+    expect (User).to.be.a("function");
   });
 
   it ("should be an instance of Users", function() {
-    expect (user).to.be.an.instanceof(Users)
+    expect (user).to.be.an.instanceof(User)
   });
 
   it ("should start with an empty favorites list", function() {

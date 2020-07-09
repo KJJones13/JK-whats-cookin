@@ -1,4 +1,4 @@
-class Users {
+class User {
   constructor() {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
@@ -46,5 +46,5 @@ class Users {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = Users;
+  module.exports = User;
 }
