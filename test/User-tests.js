@@ -1,23 +1,14 @@
 const chai = require("chai");
 const expect = chai.expect;
 const Users = require("../src/users");
+const usersData = require("../data.users")
 
 describe ("Users", function() {
   let user, recipe;
   beforeEach(function () {
     //Describe variables used in test here!
     user = new Users();
-    recipe1 = {
-      "id": 595736,
-      "tags": [
-        "antipasti",
-        "starter",
-        "snack",
-        "appetizer",
-        "antipasto",
-        "hor d'oeuvre"
-      ]
-    }
+    recipe1 =
     recipe2 = {
       "id": 678353,
       "tags": [
