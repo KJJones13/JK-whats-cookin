@@ -27,6 +27,22 @@ class Users {
   addToCook(recipe) {
     this.recipesToCook.push(recipe);
   }
+
+  filterFavRecipes(type) {
+    const foundRecipes = this.favoriteRecipes.filter(recipe => {
+      return recipe.tags.includes(type)
+    })
+
+    return foundRecipes;
+  }
+
+  filterToCook(type) {
+    const foundRecipes = this.recipesToCook.filter(recipe => {
+      return recipe.tags.includes(type)
+    })
+
+    return foundRecipes;
+  }
 }
 
 if (typeof module !== "undefined") {
