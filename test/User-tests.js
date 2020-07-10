@@ -1,13 +1,15 @@
 const chai = require("chai");
 const expect = chai.expect;
 const User = require("../src/User");
-const Recipes = require("../src/recipes")
-const recipeData = require("../data/recipes")
+const Recipes = require("../src/recipes");
+const Pantry = require("../src/Pantry");
+const recipeData = require("../data/recipes");
+const usersData = require("../data/users");
 
 describe ("Users", function() {
   let user, recipe;
   beforeEach(function () {
-    user = new User();
+    user = new User(usersData[0]);
     recipe1 = new Recipes(recipeData[0])
     recipe2 = new Recipes(recipeData[1])
     recipe3 = new Recipes(recipeData[2])
@@ -23,6 +25,10 @@ describe ("Users", function() {
 
   it ("should start with an empty favorites list", function() {
     expect (user.favoriteRecipes).to.deep.equal([])
+  });
+
+  it ("should have a Pantry", function() {
+    expect (user.pantry).to.be.an.instanceof(Pantry)
   });
 
   it ("should be able to add favorite recipes to a list", function() {
