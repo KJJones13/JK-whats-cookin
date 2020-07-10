@@ -1,3 +1,5 @@
+const Ingredient = require("../src/Ingredient");
+
 class Recipes {
   constructor(data) {
     this.id = data.id;
