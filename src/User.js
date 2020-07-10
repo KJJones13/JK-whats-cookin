@@ -1,11 +1,13 @@
-class Users {
+class User {
   constructor() {
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }
 
   addToFav(recipe) {
-    this.favoriteRecipes.push(recipe)
+    if(typeof recipe === "object") {
+      this.favoriteRecipes.push(recipe)
+    }
   }
 
   removeFromFav(recipe) {
@@ -25,7 +27,9 @@ class Users {
   }
 
   addToCook(recipe) {
-    this.recipesToCook.push(recipe);
+    if(typeof recipe === "object") {
+      this.recipesToCook.push(recipe);
+    }
   }
 
   filterFavRecipes(type) {
@@ -46,5 +50,5 @@ class Users {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = Users;
+  module.exports = User;
 }
