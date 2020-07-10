@@ -5,7 +5,9 @@ class User {
   }
 
   addToFav(recipe) {
-    this.favoriteRecipes.push(recipe)
+    if(typeof recipe === "object") {
+      this.favoriteRecipes.push(recipe)
+    }
   }
 
   removeFromFav(recipe) {
@@ -25,7 +27,9 @@ class User {
   }
 
   addToCook(recipe) {
-    this.recipesToCook.push(recipe);
+    if(typeof recipe === "object") {
+      this.recipesToCook.push(recipe);
+    }
   }
 
   filterFavRecipes(type) {
