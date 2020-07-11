@@ -2,20 +2,18 @@ const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
 const groceryListBtn = document.querySelector(".grocery-list-btn");
 const usersBtn = document.querySelector(".users-btn");
 const saveBtn = document.querySelector(".save-btn");
+const homeBtn = document.querySelector(".home-btn")
+const mainView = document.querySelector(".home-view");
+const userView = document.querySelector(".user-view");
+const favoriteView = document.querySelector(".favorites-view");
+const groceryView = document.querySelector(".groceryList-view");
 
 window.addEventListener('load', openRecipeInfo)
-// favRecipeBtn.addEventListener("click", showMessage);
-// groceryListBtn.addEventListener("click", showMessage);
-// usersBtn.addEventListener("click", showMessage);
-// saveBtn.addEventListener("click", showMessage);
-
-
-// let user = new Users();
-//
-// function showMessage() {
-//   alert(user);
-//   return user;
-// }
+homeBtn.addEventListener("click", changeView)
+favRecipeBtn.addEventListener("click", changeView);
+groceryListBtn.addEventListener("click", changeView);
+usersBtn.addEventListener("click", changeView);
+saveBtn.addEventListener("click", changeView);
 
 function openRecipeInfo() {
   const coll = document.getElementsByClassName("collapsible");
@@ -29,5 +27,29 @@ function openRecipeInfo() {
         content.style.display = "block";
       }
     });
+  }
+}
+
+function changeView(event) {
+  if (event.target.className === "users-btn") {
+    mainView.classList.add('hidden');
+    userView.classList.remove('hidden');
+    favoriteView.classList.add('hidden');
+    groceryView.classList.add('hidden');
+  } else if (event.target.className === "favorite-recipes-btn") {
+      mainView.classList.add('hidden');
+      userView.classList.add('hidden');
+      favoriteView.classList.remove('hidden');
+      groceryView.classList.add('hidden');
+  } else if (event.target.className === "grocery-list-btn") {
+      mainView.classList.add('hidden');
+      userView.classList.add('hidden');
+      favoriteView.classList.add('hidden');
+      groceryView.classList.remove('hidden');
+  } else if (event.target.className === "home-btn") {
+      mainView.classList.remove('hidden');
+      userView.classList.add('hidden');
+      favoriteView.classList.add('hidden');
+      groceryView.classList.add('hidden');
   }
 }
