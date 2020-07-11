@@ -1,6 +1,7 @@
 const chai = require("chai");
 const expect = chai.expect;
 const Recipes = require("../src/recipes");
+const Ingredient = require("../src/Ingredient");
 const recipeData = require("../data/recipes");
 const ingredientData = require("../data/ingredients");
 
@@ -21,5 +22,20 @@ describe ("Recipes", function() {
 
   it ("should have a list of instructions", function() {
     expect (recipe.instructions.length).to.equal(6);
+  });
+
+  it ("should return the directions", function() {
+    recipe.getDirections();
+    expect (recipe.getDirections()[0].number).to.equal(1);
+  });
+
+  it ("should be able to calculate the cost ", function() {
+    recipe.getCost();
+    expect (recipe.totalCost).to.equal(5921);
+  });
+
+  it ("should have a list of ingredients where each element is an instance of Ingredient", function() {
+    recipe.convertIngredient();
+    expect (recipe.ingredients[0]).to.be.an.instanceof(Ingredient);
   });
 });
