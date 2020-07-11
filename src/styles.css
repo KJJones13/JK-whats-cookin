@@ -1,21 +1,29 @@
+/*-----------Global-----------*/
 * {
   font-family: 'Montserrat', sans-serif;
 }
 
 body {
+  margin: 0;
   background-color: gray;
 }
 
+.hidden {
+  display: none;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  width: 150px;
+  height: 75px;
+}
+
+/*-----------Header-----------*/
 header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-button {
-  background: transparent;
-  width: 150px;
-  height: 75px;
 }
 
 .header-left {
@@ -27,13 +35,34 @@ button {
 .header-right {
   display: flex;
   flex-direction: row-reverse;
-
 }
 
-.main-section {
-  display: flex;
+.home-btn {
+  border: none;
+  outline: none;
+  font-size: 27px;
+}
+/*-----------Body-----------*/
+
+.main-body {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+/*-----------Home View-----------*/
+.home-view {
+  /* display: flex;
   flex-direction: column-reverse;
   background-image: url(https://spoonacular.com/recipeImages/595736-556x370.jpg);
   background-size: cover;
-  height: 500px;
+  height: 500px; */
 }
+/*
+.view {
+  display: flex;
+  justify-content: center;
+} */
+
+/*-----------User View-----------*/
+/*-----------Favorites View-----------*/
+/*-----------Grocery List View-----------*/
