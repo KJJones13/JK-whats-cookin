@@ -5,6 +5,7 @@ const Recipes = require("../src/recipes");
 const Pantry = require("../src/Pantry");
 const recipeData = require("../data/recipes");
 const usersData = require("../data/users");
+const ingredientsData = require("../data/ingredients");
 
 describe ("Users", function() {
   let user, recipe;
@@ -102,7 +103,7 @@ describe ("Users", function() {
   it ("should not add true to its cook list", function() {
     user.addToCook(true);
     expect(user.recipesToCook.length).to.equal(0);
-  })
+  });
 
   it ("should be able to filter favorite recipes", function() {
     user.favoriteRecipe(recipe1)
@@ -110,5 +111,19 @@ describe ("Users", function() {
     user.favoriteRecipe(recipe3)
 
     expect(user.filterFavRecipes("snack")).to.deep.equal([recipe1]);
+  });
+
+  it ("should be able to search all recipes by name", function() {
+    user.searchRecipes();
+    expect(user.searchRecipes("Maple Dijon Apple").length).to.equal(1);
+  });
+
+  it ("should be able to search all recipes by tag", function() {
+    user.searchRecipes();
+    expect(user.searchRecipes("antipasti").length).to.equal(9);
+  });
+
+  it ("should be able to search all recipes by ingredient", function() {
+    expect(user.searchByIngredient().length).to.equal(1);
   });
 });

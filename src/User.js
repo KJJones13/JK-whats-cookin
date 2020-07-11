@@ -1,4 +1,6 @@
-// const Pantry = require("../src/Pantry");
+const Pantry = require("../src/Pantry");
+const recipeData = require("../data/recipes");
+const ingredientsData = require("../data/ingredients");
 
 class User {
   constructor(user) {
@@ -52,7 +54,29 @@ class User {
 
     return foundRecipes;
   }
+  searchRecipes(userInput) {
+    let foundRecipes = null;
+    foundRecipes = recipeData.filter(recipe => {
+
+      if(recipe.name.includes(userInput)) {
+        return recipe;
+      }
+      if(recipe.tags.includes(userInput)) {
+        return recipe;
+      }
+    })
+
+    return foundRecipes;
+  }
+  // searchByIngredient(userInput) {
+  //   let foundIngredient = ingredientsData.find(ingredient => {
+  //     return ingredient.name === userInput;
+  //   })
+  //   return foundIngredient;
+  // }
 }
+
+// if(recipe.tags.includes(userInput) || recipe.name.includes(userInput) || recipe.ingredients.includes(userInput)) {
 
 if (typeof module !== "undefined") {
   module.exports = User;
