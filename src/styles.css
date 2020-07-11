@@ -1,21 +1,29 @@
+/*-----------Global-----------*/
 * {
   font-family: 'Montserrat', sans-serif;
 }
 
 body {
+  margin: 0;
   background-color: gray;
 }
 
+.hidden {
+  display: none;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  width: 150px;
+  height: 75px;
+}
+
+/*-----------Header-----------*/
 header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-button {
-  background: transparent;
-  width: 150px;
-  height: 75px;
 }
 
 .header-left {
@@ -27,13 +35,82 @@ button {
 .header-right {
   display: flex;
   flex-direction: row-reverse;
-
 }
 
-.main-section {
-  display: flex;
+.home-btn {
+  border: none;
+  outline: none;
+  font-size: 27px;
+}
+/*-----------Body-----------*/
+
+.main-body {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+/*-----------Home View-----------*/
+.home-view {
+  /* display: flex;
   flex-direction: column-reverse;
   background-image: url(https://spoonacular.com/recipeImages/595736-556x370.jpg);
   background-size: cover;
-  height: 500px;
+  height: 500px; */
 }
+
+.recipe-card {
+  width: 80%;
+  height: 50%;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-head {
+  position: relative;
+  width: 90%;
+  display: flex;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.save-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/*
+.view {
+  display: flex;
+  justify-content: center;
+  }
+*/
+
+/*-----------User View-----------*/
+/*-----------Favorites View-----------*/
+/*-----------Grocery List View-----------*/
