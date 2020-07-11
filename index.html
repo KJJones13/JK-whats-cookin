@@ -11,7 +11,7 @@
   <body>
     <header>
       <section class="header-left">
-        <h1>JK Cookin</h1>
+        <button class="home-btn">JK Cookin</button>
       </section>
         <form class="search-bar" action="index.html" method="post" >
           <label for="search-bar-label">What would you like to cook?</label>
@@ -22,8 +22,19 @@
         <button type="button" class="users-btn">Users</button>
       </section>
     </header>
-    <section class="main-section">
-      <button type="button" class="save-to-box-btn">Save to Recipe Box</button>
+    <section class="main-body">
+      <section class="view home-view">
+        <button type="button" class="save-to-box-btn">Save to Recipe Box</button>
+      </section>
+      <section class="view user-view hidden">
+        <p>User View</p>
+      </section>
+      <section class="view favorites-view hidden">
+        <p>Favorite View</p>
+      </section>
+      <section class="view groceryList-view hidden">
+        <p>Grocery List</p>
+      </section>
     </section>
     <script type="text/javascript" src="./users.js"></script>
     <script type="text/javascript" src="./recipes.js"></script>
