@@ -1,6 +1,10 @@
 /*-----------Global-----------*/
-* {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 body {
@@ -9,7 +13,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 button {
@@ -61,13 +65,12 @@ header {
   width: 80%;
   height: 50%;
   background-color: #FFF;
-  display: flex;
   flex-direction: column;
+  display: inherit;
 }
 
 .card-head {
   position: relative;
-  width: 90%;
   display: flex;
 }
 
@@ -111,5 +114,18 @@ header {
 */
 
 /*-----------User View-----------*/
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
 /*-----------Favorites View-----------*/
 /*-----------Grocery List View-----------*/
