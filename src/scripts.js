@@ -12,6 +12,8 @@ const usersBtn = document.querySelector(".users-btn");
 // const saveBtn = document.querySelector(".save-btn");
 const homeBtn = document.querySelector(".home-btn")
 
+let currentUser;
+
 window.addEventListener('load', buildHomeView)
 homeBtn.addEventListener("click", changeView)
 favRecipeBtn.addEventListener("click", changeView);
@@ -78,6 +80,15 @@ function buildHomeView() {
   }
 
   openRecipeInfo()
+  loadRandomUser()
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function loadRandomUser() {
+  currentUser = new User(usersData[getRandomIndex(usersData)])
 }
 
 function changeView(event) {
