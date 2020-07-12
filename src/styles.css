@@ -51,11 +51,10 @@ header {
 
 /*-----------Home View-----------*/
 .home-view {
-  /* display: flex;
-  flex-direction: column-reverse;
-  background-image: url(https://spoonacular.com/recipeImages/595736-556x370.jpg);
-  background-size: cover;
-  height: 500px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
 }
 
 .recipe-card {
