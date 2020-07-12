@@ -1,6 +1,10 @@
 /*-----------Global-----------*/
-* {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 body {
@@ -9,7 +13,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 button {
@@ -61,8 +65,8 @@ header {
   width: 80%;
   height: 50%;
   background-color: #FFF;
-  display: flex;
   flex-direction: column;
+  display: inherit;
 }
 
 .card-head {
