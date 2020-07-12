@@ -128,4 +128,28 @@ th, td {
   padding: 15px;
 }
 /*-----------Favorites View-----------*/
+.favorite-recipes-grid {
+  display: grid!important;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.mini-recipe-card {
+  width: 80%;
+  height: 100%;
+  background-color: #555;
+  flex-direction: column;
+  display: inherit;
+}
+
+.mini-recipe-card img {
+  width: 100%;
+}
+
+.mini-recipe-card p {
+  color: #FFF;
+  margin: 0;
+}
 /*-----------Grocery List View-----------*/
