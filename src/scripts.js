@@ -9,19 +9,18 @@ const groceryView = document.querySelector(".groceryList-view");
 const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
 const groceryListBtn = document.querySelector(".grocery-list-btn");
 const usersBtn = document.querySelector(".users-btn");
-// const saveBtn = document.querySelector(".save-btn");
 const homeBtn = document.querySelector(".home-btn")
 
 /*-----------Variable Instantiation-----------*/
 let currentUser;
 let recipes;
+let saveBtn;
 
 window.addEventListener('load', buildHomeView)
 homeBtn.addEventListener("click", changeView)
 favRecipeBtn.addEventListener("click", changeView);
 groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
-// saveBtn.addEventListener("click", changeView);
 
 /*-----------Page Load Functions-----------*/
 function openRecipeInfo() {
@@ -98,10 +97,20 @@ function buildHomeView() {
       </section>
     `;
     homeView.insertAdjacentHTML('beforeend', newRecipeCard);
+    return saveBtn = document.getElementsByClassName("save-btn");
   });
 
+  addClickToSaveButton()
   loadRandomUser()
   openRecipeInfo()
+}
+
+function addClickToSaveButton() {
+  if (saveBtn) {
+    for (let i = 0; i < saveBtn.length; i++) {
+      saveBtn[i].addEventListener("click", addFavoriteRecipe)
+    }
+  }
 }
 
 /*-----------View-Related Functions-----------*/
@@ -148,4 +157,8 @@ function displayUsers() {
     `;
     userView.insertAdjacentHTML('beforeend', newUser);
   })
+}
+/*-----------Favorite Recipes-----------*/
+function addFavoriteRecipe(event) {
+  currentUser.favoriteRecipe(event.target);
 }
