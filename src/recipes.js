@@ -46,5 +46,5 @@ class Recipe {
 // instantiate the ingredient and give it the quantity
 // from the current ingredient
 if (typeof module !== "undefined") {
-  module.exports = Recipes;
+  module.exports = Recipe;
 }
