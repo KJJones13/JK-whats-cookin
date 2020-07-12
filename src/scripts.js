@@ -47,16 +47,25 @@ function loadRandomUser() {
   currentUser = new User(usersData[getRandomIndex(usersData)])
 }
 
+function createRecipes() {
+  recipes = recipeData.map(recipe => {
+    return new Recipe(recipe)
+  })
+
+  return recipes
+}
+
 function buildHomeView() {
-  for (let i = 0; i < recipeData.length; i++) {
+  createRecipes()
+  recipes.forEach(recipe => {
     let newRecipeCard = `
-    <section class="recipe-card" id=${recipeData[i].id}>
+    <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
-        <img class="card-image" src=${recipeData[i].image}>
-        <button type="button" class="save-btn" id=${recipeData[i].id}>Save Recipe</button>
+        <img class="card-image" src=${recipe.image}>
+        <button type="button" class="save-btn" id=${recipe.id}>Save Recipe</button>
       </section>
       <section class="card-body">
-        <button type="button" class="collapsible">${recipeData[i].name}</button>
+        <button type="button" class="collapsible">${recipe.name}</button>
         <section class="content">
           <section class="ingredients">
             <p>Ingredients</p>
@@ -89,7 +98,7 @@ function buildHomeView() {
       </section>
     `;
     homeView.insertAdjacentHTML('beforeend', newRecipeCard);
-  }
+  });
 
   loadRandomUser()
   openRecipeInfo()
