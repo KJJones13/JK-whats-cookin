@@ -18,6 +18,20 @@ favRecipeBtn.addEventListener("click", changeView);
 groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
 // saveBtn.addEventListener("click", changeView);
+function openRecipeInfo() {
+  const coll = document.getElementsByClassName("collapsible");
+  for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      if (content.style.display=== "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+}
 
 function buildHomeView() {
   for (let i = 0; i < recipeData.length; i++) {
@@ -66,27 +80,13 @@ function buildHomeView() {
   openRecipeInfo()
 }
 
-function openRecipeInfo() {
-  const coll = document.getElementsByClassName("collapsible");
-  for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      let content = this.nextElementSibling;
-      if (content.style.display=== "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
-}
-
 function changeView(event) {
   if (event.target.className === "users-btn") {
     homeView.classList.add('hidden');
     userView.classList.remove('hidden');
     favoriteView.classList.add('hidden');
     groceryView.classList.add('hidden');
+    displayUsers();
   } else if (event.target.className === "favorite-recipes-btn") {
       homeView.classList.add('hidden');
       userView.classList.add('hidden');
@@ -103,4 +103,24 @@ function changeView(event) {
       favoriteView.classList.add('hidden');
       groceryView.classList.add('hidden');
   }
+}
+
+function displayUsers() {
+  usersData.forEach(user => {
+    let newUser = `
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Pantry</th>
+      </tr>
+      <tr>
+        <th>${user.id}</th>
+        <th>${user.name}</th>
+        <th>${user.pantry}</th>
+      </tr>
+    </table>
+    `;
+    userView.insertAdjacentHTML('beforeend', newUser);
+  })
 }
