@@ -3,7 +3,8 @@
 /*-----------Views-----------*/
 const homeView = document.querySelector(".home-view");
 const userView = document.querySelector(".user-view");
-const favoriteView = document.querySelector(".favorites-view");
+const favoriteView = document.querySelector(".favorites-view")
+const favoriteRecipeGrid = document.querySelector(".favorite-recipes-grid");
 const groceryView = document.querySelector(".groceryList-view");
 /*-----------Buttons-----------*/
 const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
@@ -126,6 +127,7 @@ function changeView(event) {
       userView.classList.add('hidden');
       favoriteView.classList.remove('hidden');
       groceryView.classList.add('hidden');
+      displayFavoriteRecipes();
   } else if (event.target.className === "grocery-list-btn") {
       homeView.classList.add('hidden');
       userView.classList.add('hidden');
@@ -159,6 +161,25 @@ function displayUsers() {
   })
 }
 /*-----------Favorite Recipes-----------*/
+function findRecipe(recipeId) {
+  return recipes.find(recipe => {
+    return recipe.id == recipeId
+  })
+}
+
 function addFavoriteRecipe(event) {
-  currentUser.favoriteRecipe(event.target);
+  let newRecipe = findRecipe(event.target.id);
+  currentUser.favoriteRecipe(newRecipe);
+}
+
+function displayFavoriteRecipes() {
+  currentUser.favoriteRecipes.forEach(recipe => {
+    let newFavoriteRecipe = `
+    <section class="mini-recipe-card">
+      <img src=${recipe.image}>
+      <p>${recipe.name}</p>
+    </section>
+    `;
+    favoriteRecipeGrid.insertAdjacentHTML('afterbegin', newFavoriteRecipe)
+  })
 }
