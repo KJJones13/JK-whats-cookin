@@ -12,7 +12,9 @@ const usersBtn = document.querySelector(".users-btn");
 // const saveBtn = document.querySelector(".save-btn");
 const homeBtn = document.querySelector(".home-btn")
 
+/*-----------Variable Instantiation-----------*/
 let currentUser;
+let recipes;
 
 window.addEventListener('load', buildHomeView)
 homeBtn.addEventListener("click", changeView)
@@ -20,6 +22,8 @@ favRecipeBtn.addEventListener("click", changeView);
 groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
 // saveBtn.addEventListener("click", changeView);
+
+/*-----------Page Load Functions-----------*/
 function openRecipeInfo() {
   const coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
@@ -33,6 +37,14 @@ function openRecipeInfo() {
       }
     });
   }
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function loadRandomUser() {
+  currentUser = new User(usersData[getRandomIndex(usersData)])
 }
 
 function buildHomeView() {
@@ -79,18 +91,11 @@ function buildHomeView() {
     homeView.insertAdjacentHTML('beforeend', newRecipeCard);
   }
 
-  openRecipeInfo()
   loadRandomUser()
+  openRecipeInfo()
 }
 
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
-function loadRandomUser() {
-  currentUser = new User(usersData[getRandomIndex(usersData)])
-}
-
+/*-----------View-Related Functions-----------*/
 function changeView(event) {
   if (event.target.className === "users-btn") {
     homeView.classList.add('hidden');
