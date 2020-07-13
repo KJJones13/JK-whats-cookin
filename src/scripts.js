@@ -121,7 +121,11 @@ function addClickToSaveButton() {
 /*-----------Search-Related Functions-----------*/
 function searchAllRecipes() {
   event.preventDefault();
+  clearSearchResults();
   return currentUser.searchRecipes(searchBar.value)
+}
+function clearSearchResults() {
+  searchView.innerText = ""
 }
 
 function buildResultsSection(recipes) {
