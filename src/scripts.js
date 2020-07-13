@@ -3,21 +3,27 @@
 /*-----------Views-----------*/
 const homeView = document.querySelector(".home-view");
 const userView = document.querySelector(".user-view");
-const favoriteView = document.querySelector(".favorites-view");
+const favoriteView = document.querySelector(".favorites-view")
+const favoriteRecipeGrid = document.querySelector(".favorite-recipes-grid");
 const groceryView = document.querySelector(".groceryList-view");
 /*-----------Buttons-----------*/
 const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
 const groceryListBtn = document.querySelector(".grocery-list-btn");
 const usersBtn = document.querySelector(".users-btn");
-// const saveBtn = document.querySelector(".save-btn");
 const homeBtn = document.querySelector(".home-btn")
+
+/*-----------Variable Instantiation-----------*/
+let currentUser;
+let recipes;
+let saveBtn;
 
 window.addEventListener('load', buildHomeView)
 homeBtn.addEventListener("click", changeView)
 favRecipeBtn.addEventListener("click", changeView);
 groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
-// saveBtn.addEventListener("click", changeView);
+
+/*-----------Page Load Functions-----------*/
 function openRecipeInfo() {
   const coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
@@ -33,16 +39,33 @@ function openRecipeInfo() {
   }
 }
 
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function loadRandomUser() {
+  currentUser = new User(usersData[getRandomIndex(usersData)])
+}
+
+function createRecipes() {
+  recipes = recipeData.map(recipe => {
+    return new Recipe(recipe)
+  })
+
+  return recipes
+}
+
 function buildHomeView() {
-  for (let i = 0; i < recipeData.length; i++) {
+  createRecipes()
+  recipes.forEach(recipe => {
     let newRecipeCard = `
-    <section class="recipe-card" id=${recipeData[i].id}>
+    <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
-        <img class="card-image" src=${recipeData[i].image}>
-        <button type="button" class="save-btn" id=${recipeData[i].id}>Save Recipe</button>
+        <img class="card-image" src=${recipe.image}>
+        <button type="button" class="save-btn" id=${recipe.id}>Save Recipe</button>
       </section>
       <section class="card-body">
-        <button type="button" class="collapsible">${recipeData[i].name}</button>
+        <button type="button" class="collapsible">${recipe.name}</button>
         <section class="content">
           <section class="ingredients">
             <p>Ingredients</p>
@@ -75,11 +98,23 @@ function buildHomeView() {
       </section>
     `;
     homeView.insertAdjacentHTML('beforeend', newRecipeCard);
-  }
+    return saveBtn = document.getElementsByClassName("save-btn");
+  });
 
+  addClickToSaveButton()
+  loadRandomUser()
   openRecipeInfo()
 }
 
+function addClickToSaveButton() {
+  if (saveBtn) {
+    for (let i = 0; i < saveBtn.length; i++) {
+      saveBtn[i].addEventListener("click", addFavoriteRecipe)
+    }
+  }
+}
+
+/*-----------View-Related Functions-----------*/
 function changeView(event) {
   if (event.target.className === "users-btn") {
     homeView.classList.add('hidden');
@@ -92,6 +127,7 @@ function changeView(event) {
       userView.classList.add('hidden');
       favoriteView.classList.remove('hidden');
       groceryView.classList.add('hidden');
+      displayFavoriteRecipes();
   } else if (event.target.className === "grocery-list-btn") {
       homeView.classList.add('hidden');
       userView.classList.add('hidden');
@@ -122,5 +158,28 @@ function displayUsers() {
     </table>
     `;
     userView.insertAdjacentHTML('beforeend', newUser);
+  })
+}
+/*-----------Favorite Recipes-----------*/
+function findRecipe(recipeId) {
+  return recipes.find(recipe => {
+    return recipe.id == recipeId
+  })
+}
+
+function addFavoriteRecipe(event) {
+  let newRecipe = findRecipe(event.target.id);
+  currentUser.favoriteRecipe(newRecipe);
+}
+
+function displayFavoriteRecipes() {
+  currentUser.favoriteRecipes.forEach(recipe => {
+    let newFavoriteRecipe = `
+    <section class="mini-recipe-card">
+      <img src=${recipe.image}>
+      <p>${recipe.name}</p>
+    </section>
+    `;
+    favoriteRecipeGrid.insertAdjacentHTML('afterbegin', newFavoriteRecipe)
   })
 }
