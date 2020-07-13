@@ -10,18 +10,21 @@ const groceryView = document.querySelector(".groceryList-view");
 const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
 const groceryListBtn = document.querySelector(".grocery-list-btn");
 const usersBtn = document.querySelector(".users-btn");
-const homeBtn = document.querySelector(".home-btn")
+const homeBtn = document.querySelector(".home-btn");
+const searchBtn = document.querySelector(".search-btn");
+const searchBar = document.querySelector("#search-bar");
 
 /*-----------Variable Instantiation-----------*/
 let currentUser;
 let recipes;
 let saveBtn;
 
-window.addEventListener('load', buildHomeView)
-homeBtn.addEventListener("click", changeView)
+window.addEventListener('load', buildHomeView);
+homeBtn.addEventListener("click", changeView);
 favRecipeBtn.addEventListener("click", changeView);
 groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
+searchBtn.addEventListener("click", searchAllRecipes);
 
 /*-----------Page Load Functions-----------*/
 function openRecipeInfo() {
@@ -113,6 +116,15 @@ function addClickToSaveButton() {
     }
   }
 }
+
+/*-----------Search-Related Functions-----------*/
+function searchAllRecipes() {
+  event.preventDefault();
+  console.log(currentUser.searchRecipes(searchBar.value))
+  currentUser.searchRecipes(searchBar.value);
+}
+// create a function to return recipes that match the users input
+//
 
 /*-----------View-Related Functions-----------*/
 function changeView(event) {
