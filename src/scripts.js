@@ -71,7 +71,7 @@ function buildHomeView() {
     <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
         <img class="card-image" src=${recipe.image}>
-        <button type="button" class="save-btn" id=${recipe.id}>Save Recipe</button>
+        <button type="button" class="save-btn" id=${recipe.id}>Save</button>
       </section>
       <section class="card-body">
         <button type="button" class="collapsible">${recipe.name}</button>
@@ -81,7 +81,7 @@ function buildHomeView() {
             <ul>
               ${recipe.ingredients.map(ingredient => {
                 return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
-                })
+                }).join("")
               }
             </ul>
           </section>
@@ -90,7 +90,7 @@ function buildHomeView() {
             <ol>
               ${recipe.instructions.map(instruction => {
                 return `<li>${instruction.instruction}</li>`
-              })}
+              }).join("")}
             </ol>
           </section>
         </section>
@@ -139,7 +139,7 @@ function buildResultsSection(recipes) {
             <ul>
             ${recipe.ingredients.map(ingredient => {
               return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
-              })
+              }).join("")
             }
             </ul>
           </section>
@@ -218,7 +218,7 @@ function displayUsers() {
           <ul>
           ${user.pantry.map(item => {
             return `<li>${item.amount}: ${returnIngredientName(item.ingredient)}</li>`
-          })}
+          }).join("")}
           </ul>
         </th>
       </tr>
@@ -270,27 +270,30 @@ function displayRecipeInfoPopup(recipe) {
     <h3>Ingredients</h3>
     ${recipe.ingredients.map(ingredient => {
       return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
-      })
+      }).join("")
     }</ul>
     <ol class="popup-instructions">
     <h3>Instructions</h3>
     ${recipe.instructions.map(instruction => {
       return `<li>${instruction.instruction}</li>`
-    })}
+    }).join("")}
     </ol>
   </section>
   `;
-  return popupRecipe
+  return popupRecipe;
 }
 
 function buildFavoritePopup(event) {
   let popup = document.getElementById("favorite-popup");
 
 
-  let popupBody = document.getElementById("popup-content")
+  let popupBody = document.getElementById("popup-content");
 
   let closeBtn = document.getElementsByClassName("close")[0];
   closeBtn.onclick = function() {
+    popupBody.innerHTML = `<section id="popup-content">
+      <span class="close">&times;</span>
+      </section>`;
     popup.style.display = "none";
   }
 
