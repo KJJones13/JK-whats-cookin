@@ -247,7 +247,14 @@ function addFavoriteRecipe(event) {
   currentUser.favoriteRecipe(newRecipe);
 }
 
+function clearFavoritesGrid() {
+  let currentGrid = document.querySelector(".favorite-recipes-grid");
+  return currentGrid.innerText = "";
+}
+
 function displayFavoriteRecipes() {
+  clearFavoritesGrid();
+  
   currentUser.favoriteRecipes.forEach(recipe => {
     let newFavoriteRecipe = `
     <section class="mini-recipe-card">
