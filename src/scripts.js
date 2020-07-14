@@ -254,7 +254,7 @@ function clearFavoritesGrid() {
 
 function displayFavoriteRecipes() {
   clearFavoritesGrid();
-  
+
   currentUser.favoriteRecipes.forEach(recipe => {
     let newFavoriteRecipe = `
     <section class="mini-recipe-card">
