@@ -215,7 +215,13 @@ function displayUsers() {
       <tr>
         <th>${user.id}</th>
         <th>${user.name}</th>
-        <th>${user.pantry}</th>
+        <th>
+          <ul>
+          ${user.pantry.map(item => {
+            return `<li>${item.amount}: ${item.ingredient}</li>`
+          })}
+          </ul>
+        </th>
       </tr>
     </table>
     `;
