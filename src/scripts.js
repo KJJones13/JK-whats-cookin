@@ -59,6 +59,13 @@ function createRecipes() {
   return recipes
 }
 
+function returnIngredientName(ingredientId) {
+  let foundIngredient = ingredientsData.find(currentIngredient => {
+    return currentIngredient.id === ingredientId
+  })
+  return foundIngredient.name
+}
+
 function buildHomeView() {
   createRecipes()
   recipes.forEach(recipe => {
@@ -75,7 +82,7 @@ function buildHomeView() {
             <p>Ingredients</p>
             <ul>
               ${recipe.ingredients.map(ingredient => {
-                return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${ingredient.id}</li>`
+                return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
                 })
               }
             </ul>
@@ -218,7 +225,7 @@ function displayUsers() {
         <th>
           <ul>
           ${user.pantry.map(item => {
-            return `<li>${item.amount}: ${item.ingredient}</li>`
+            return `<li>${item.amount}: ${returnIngredientName(item.ingredient)}</li>`
           })}
           </ul>
         </th>
