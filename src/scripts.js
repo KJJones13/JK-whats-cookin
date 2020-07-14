@@ -1,5 +1,3 @@
-/*-----------Data-----------*/
-// const recipeData = require("../data/recipes")
 /*-----------Views-----------*/
 const homeView = document.querySelector(".home-view");
 const userView = document.querySelector(".user-view");
@@ -29,7 +27,7 @@ searchBtn.addEventListener("click", changeView);
 
 /*-----------Page Load Functions-----------*/
 function openRecipeInfo() {
-  const coll = document.getElementsByClassName("collapsible");
+  let coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
@@ -51,8 +49,8 @@ function loadRandomUser() {
   currentUser = new User(usersData[getRandomIndex(usersData)])
 }
 
-function createRecipes() {
-  recipes = recipeData.map(recipe => {
+function createRecipes(source) {
+  recipes = source.map(recipe => {
     return new Recipe(recipe)
   })
 
@@ -67,7 +65,7 @@ function returnIngredientName(ingredientId) {
 }
 
 function buildHomeView() {
-  createRecipes()
+  createRecipes(recipeData)
   recipes.forEach(recipe => {
     let newRecipeCard = `
     <section class="recipe-card" id=${recipe.id}>
@@ -126,7 +124,7 @@ function clearSearchResults() {
 }
 
 function buildResultsSection(recipes) {
-  recipes.forEach(recipe => {
+  createRecipes(recipes).forEach(recipe => {
     let newRecipeCard = `
     <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
@@ -139,17 +137,10 @@ function buildResultsSection(recipes) {
           <section class="ingredients">
             <p>Ingredients</p>
             <ul>
-              <li>1.5 c 20081</li>
-              <li>0.5 tsp 18372</li>
-              <li>1 large 1123</li>
-              <li>0.5 c 19335</li>
-              <li>3 Tbsp 19206</li>
-              <li>0.5 c 19334</li>
-              <li>0.5 tsp 2047</li>
-              <li>24 servings 1012047</li>
-              <li>2 c 10019903</li>
-              <li>0.5 c 1145</li>
-              <li>0.5 tsp 2050</li>
+            ${recipe.ingredients.map(ingredient => {
+              return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
+              })
+            }
             </ul>
           </section>
           <section class="instructions">
@@ -166,11 +157,12 @@ function buildResultsSection(recipes) {
         </section>
       </section>
     `;
-    return searchView.insertAdjacentHTML('beforeend', newRecipeCard);
-  });
+    searchView.insertAdjacentHTML('beforeend', newRecipeCard);
+
+    addClickToSaveButton();
+    openRecipeInfo();
+  })
 }
-// create a function to return recipes that match the users input
-//
 
 /*-----------View-Related Functions-----------*/
 function changeView(event) {
@@ -254,14 +246,58 @@ function clearFavoritesGrid() {
 
 function displayFavoriteRecipes() {
   clearFavoritesGrid();
-  
+
   currentUser.favoriteRecipes.forEach(recipe => {
     let newFavoriteRecipe = `
-    <section class="mini-recipe-card">
+    <section class="mini-recipe-card" id="${recipe.id}">
       <img src=${recipe.image}>
       <p>${recipe.name}</p>
     </section>
     `;
     favoriteRecipeGrid.insertAdjacentHTML('afterbegin', newFavoriteRecipe)
   })
+
+  openFavoriteInfo();
+}
+
+function displayRecipeInfoPopup(recipe) {
+  let popupRecipe = `
+    <h2 class="popup-name">${recipe.name}</h2>
+    <img src=${recipe.image}>
+    <ul class="popup-ingredients">
+    <h3>Ingredients</h3>
+    ${recipe.ingredients.map(ingredient => {
+      return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
+      })
+    }</ul>
+    <ol class="popup-instructions">
+    <h3>Instructions</h3>
+    ${recipe.instructions.map(instruction => {
+      return `<li>${instruction.instruction}</li>`
+    })}
+    </ol>
+  </section>
+  `;
+  return popupRecipe
+}
+
+function buildFavoritePopup(event) {
+  let popup = document.getElementById("favorite-popup");
+  let popupBody = document.getElementById("popup-content")
+  let closeBtn = document.getElementsByClassName("close")[0];
+  closeBtn.onclick = function() {
+    popup.style.display = "none";
+  }
+
+  let foundRecipe = findRecipe(event.currentTarget.id);
+  popupBody.insertAdjacentHTML("beforeend", displayRecipeInfoPopup(foundRecipe));
+
+  popup.style.display = "block"
+}
+
+function openFavoriteInfo() {
+  let coll = document.getElementsByClassName("mini-recipe-card");
+  for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", buildFavoritePopup);
+  }
 }
