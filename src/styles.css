@@ -22,11 +22,18 @@ button {
   width: 150px;
   height: 55px;
   border-radius: 5%;
+  background-color: seashell;
+  margin-left: 5px;
 }
 
 input {
-  height: 40px;
+  height: 45px;
   width: 200px;
+  background-color: seashell;
+}
+
+li {
+  text-align: left;
 }
 
 /*-----------Header-----------*/
@@ -89,6 +96,8 @@ header {
   position: absolute;
   bottom: 5px;
   left: 5px;
+  height: 25px;
+  width: 50px
 }
 
 .collapsible {
