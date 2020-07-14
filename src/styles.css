@@ -20,7 +20,13 @@ button {
   font-family: 'Montserrat', sans-serif;
   background: transparent;
   width: 150px;
-  height: 75px;
+  height: 55px;
+  border-radius: 5%;
+}
+
+input {
+  height: 40px;
+  width: 200px;
 }
 
 /*-----------Header-----------*/
@@ -28,6 +34,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-top: 10px;
 }
 
 .header-left {
