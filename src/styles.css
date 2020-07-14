@@ -113,12 +113,14 @@ header {
   background-color: #f1f1f1;
 }
 
-/*
-.view {
-  display: flex;
-  justify-content: center;
-  }
-*/
+/*-----------Search Results View-----------*/
+.search-results-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  margin: 10px;
+}
 
 /*-----------User View-----------*/
 table, td, th {
@@ -135,6 +137,12 @@ th, td {
   padding: 15px;
 }
 /*-----------Favorites View-----------*/
+.favorites-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .favorite-recipes-grid {
   display: grid!important;
   grid-template-columns: repeat(5, 1fr);
@@ -158,5 +166,39 @@ th, td {
 .mini-recipe-card p {
   color: #FFF;
   margin: 0;
+}
+
+.popup {
+  display: none;
+  z-index: 1;
+  width: 80%;
+  overflow: scroll;
+  background-color: #FFF;
+}
+
+.popup h3 {
+  text-decoration: underline;
+  color: #45b3e0;
+  size: 1.5em;
+}
+
+.popup-content {
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+}
+
+.close {
+  color: red;
+  opacity: 0.5;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.close: hover,
+.close: focus {
+  color: red;
+  opacity: 1;
 }
 /*-----------Grocery List View-----------*/
