@@ -261,6 +261,8 @@ function displayFavoriteRecipes() {
 }
 
 function displayRecipeInfoPopup(recipe) {
+  searchView.innerText = "";
+
   let popupRecipe = `
     <h2 class="popup-name">${recipe.name}</h2>
     <img src=${recipe.image}>
@@ -283,7 +285,10 @@ function displayRecipeInfoPopup(recipe) {
 
 function buildFavoritePopup(event) {
   let popup = document.getElementById("favorite-popup");
+
+
   let popupBody = document.getElementById("popup-content")
+
   let closeBtn = document.getElementsByClassName("close")[0];
   closeBtn.onclick = function() {
     popup.style.display = "none";
