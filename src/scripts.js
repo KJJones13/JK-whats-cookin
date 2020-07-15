@@ -129,7 +129,7 @@ function buildResultsSection(recipes) {
     <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
         <img class="card-image" src=${recipe.image}>
-        <button type="button" class="save-btn" id=${recipe.id}>Save Recipe</button>
+        <button type="button" class="save-btn" id=${recipe.id}>Save</button>
       </section>
       <section class="card-body">
         <button type="button" class="collapsible">${recipe.name}</button>
@@ -146,12 +146,9 @@ function buildResultsSection(recipes) {
           <section class="instructions">
             <p>Instructions<p>
             <ol>
-              <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
-              <li>Add egg and vanilla and mix until combined.</li>
-              <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
-              <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
-              <li>Bake for 9 to 10 minutes, or until you see the edges start to brown.</li>
-              <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
+            ${recipe.instructions.map(instruction => {
+              return `<li>${instruction.instruction}</li>`
+            }).join("")}
             </ol>
           </section>
         </section>
@@ -165,38 +162,28 @@ function buildResultsSection(recipes) {
 }
 
 /*-----------View-Related Functions-----------*/
+function hideAllViews() {
+  homeView.classList.add('hidden');
+  userView.classList.add('hidden');
+  favoriteView.classList.add('hidden');
+  groceryView.classList.add('hidden');
+  searchView.classList.add('hidden');
+}
+
 function changeView(event) {
+  hideAllViews()
+
   if (event.target.className === "users-btn") {
-    homeView.classList.add('hidden');
     userView.classList.remove('hidden');
-    favoriteView.classList.add('hidden');
-    groceryView.classList.add('hidden');
-    searchView.classList.add('hidden');
     displayUsers();
   } else if (event.target.className === "favorite-recipes-btn") {
-      homeView.classList.add('hidden');
-      userView.classList.add('hidden');
-      favoriteView.classList.remove('hidden');
-      groceryView.classList.add('hidden');
-      searchView.classList.add('hidden');
-      displayFavoriteRecipes();
+    favoriteView.classList.remove('hidden');
+    displayFavoriteRecipes();
   } else if (event.target.className === "grocery-list-btn") {
-      homeView.classList.add('hidden');
-      userView.classList.add('hidden');
-      favoriteView.classList.add('hidden');
-      groceryView.classList.remove('hidden');
-      searchView.classList.add('hidden');
+    groceryView.classList.remove('hidden');
   } else if (event.target.className === "home-btn") {
-      homeView.classList.remove('hidden');
-      userView.classList.add('hidden');
-      favoriteView.classList.add('hidden');
-      groceryView.classList.add('hidden');
-      searchView.classList.add('hidden');
+    homeView.classList.remove('hidden');
   } else if (event.target.className === "search-btn") {
-    homeView.classList.add('hidden');
-    userView.classList.add('hidden');
-    favoriteView.classList.add('hidden');
-    groceryView.classList.add('hidden');
     searchView.classList.remove('hidden');
     buildResultsSection(searchAllRecipes());
   }
