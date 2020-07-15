@@ -80,7 +80,7 @@ function buildHomeView() {
             <p>Ingredients</p>
             <ul>
               ${recipe.ingredients.map(ingredient => {
-                return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
+                return `<li>${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
                 }).join("")
               }
             </ul>
@@ -138,7 +138,7 @@ function buildResultsSection(recipes) {
             <p>Ingredients</p>
             <ul>
             ${recipe.ingredients.map(ingredient => {
-              return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
+              return `<li>${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
               }).join("")
             }
             </ul>
@@ -256,7 +256,7 @@ function displayRecipeInfoPopup(recipe) {
     <ul class="popup-ingredients">
     <h3>Ingredients</h3>
     ${recipe.ingredients.map(ingredient => {
-      return `<li>${ingredient.quantity.amount} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
+      return `<li>${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit} of ${returnIngredientName(ingredient.id)}</li>`
       }).join("")
     }</ul>
     <ol class="popup-instructions">
