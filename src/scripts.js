@@ -251,8 +251,8 @@ function displayRecipeInfoPopup(recipe) {
   searchView.innerText = "";
 
   let popupRecipe = `
-    <h2 class="popup-name">${recipe.name}</h2>
     <img src=${recipe.image}>
+    <h2 class="popup-name">${recipe.name}</h2>
     <ul class="popup-ingredients">
     <h3>Ingredients</h3>
     ${recipe.ingredients.map(ingredient => {
@@ -272,7 +272,6 @@ function displayRecipeInfoPopup(recipe) {
 
 function buildFavoritePopup(event) {
   let popup = document.getElementById("favorite-popup");
-
 
   let popupBody = document.getElementById("popup-content");
 
