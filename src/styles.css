@@ -4,12 +4,11 @@
 *:after {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
 }
 
 body {
   margin: 0;
-  background-color: gray;
+  background-color: #F0F0F2;
 }
 
 .hidden {
@@ -18,18 +17,15 @@ body {
 
 button {
   font-family: 'Montserrat', sans-serif;
-  background: transparent;
-  width: 150px;
-  height: 55px;
-  border-radius: 5%;
-  background-color: seashell;
-  margin-left: 5px;
+  font-weight: bold;
 }
 
 input {
   height: 45px;
-  width: 200px;
-  background-color: seashell;
+  width: 300px;
+  outline: 0;
+  border-width: 0 0 2px;
+  background-color: transparent;
 }
 
 li {
@@ -39,20 +35,22 @@ li {
 /*-----------Header-----------*/
 header {
   display: flex;
+  background-color: ;
   justify-content: space-around;
   align-items: center;
   padding-top: 10px;
 }
 
-.header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+header button {
+  margin: 20px;
+  border-width: 0 0 2px;
+  border-radius: 5%;
 }
 
 .header-right {
   display: flex;
   flex-direction: row-reverse;
+  align-content: space-around;
 }
 
 .home-btn {
@@ -63,21 +61,21 @@ header {
 /*-----------Body-----------*/
 
 .main-body {
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  justify-content: center;
 }
 
 /*-----------Home View-----------*/
 .home-view {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
   padding: 10px;
 }
 
 .recipe-card {
-  width: 80%;
-  height: 50%;
+  width: 100%;
+  height: 10%;
   background-color: #FFF;
   flex-direction: column;
   display: inherit;
@@ -86,10 +84,15 @@ header {
 .card-head {
   position: relative;
   display: flex;
+  width: 100%;
 }
 
 .card-image {
   width: 100%;
+}
+
+.search-btn {
+  border-width: 2px;
 }
 
 .save-btn {
@@ -101,10 +104,11 @@ header {
 }
 
 .collapsible {
-  background-color: #777;
+  background-color: #14312A;
   color: white;
   padding: 18px;
   width: 100%;
+  border-radius: 0%;
   border: none;
   text-align: left;
   outline: none;
@@ -112,7 +116,7 @@ header {
 }
 
 .collapsible:hover {
-  background-color: #555;
+  background-color: #69724C;
 }
 
 .content {
@@ -120,6 +124,7 @@ header {
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
+  border: 1px solid #888;
 }
 
 /*-----------Search Results View-----------*/
@@ -135,6 +140,7 @@ header {
 table, td, th {
   border: 1px solid #ddd;
   text-align: left;
+  overflow: scroll;
 }
 
 table {
@@ -174,7 +180,9 @@ th, td {
 
 .mini-recipe-card p {
   color: #FFF;
+  background-color: #14312A;
   margin: 0;
+
 }
 
 .popup {
@@ -183,15 +191,15 @@ th, td {
   width: 80%;
   overflow: scroll;
   background-color: #FFF;
+  margin: 15px;
 }
 
 .popup h3 {
-  text-decoration: underline;
-  color: #45b3e0;
-  size: 1.5em;
+  color: #14312A;
 }
 
-.popup-content {
+#popup-content {
+  text-align: center;
   margin: auto;
   padding: 10px;
   border: 1px solid #888;
@@ -201,7 +209,8 @@ th, td {
   color: red;
   opacity: 0.5;
   float: right;
-  font-size: 2em;
+  margin-right: 5px;
+  font-size: 2.5em;
   font-weight: bold;
 }
 
