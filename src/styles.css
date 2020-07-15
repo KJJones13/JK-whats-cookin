@@ -4,7 +4,6 @@
 *:after {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
 }
 
 body {
@@ -19,16 +18,14 @@ body {
 button {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  width: 150px;
-  height: 55px;
-  border-radius: 5%;
-  background-color: seashell;
 }
 
 input {
   height: 45px;
-  width: 200px;
-  background-color: seashell;
+  width: 300px;
+  outline: 0;
+  border-width: 0 0 2px;
+  background-color: transparent;
 }
 
 li {
@@ -45,7 +42,9 @@ header {
 }
 
 header button {
-  margin: 10px;
+  margin: 20px;
+  border-width: 0 0 2px;
+  border-radius: 5%;
 }
 
 .header-right {
@@ -92,6 +91,10 @@ header button {
   width: 100%;
 }
 
+.search-btn {
+  border-width: 2px;
+}
+
 .save-btn {
   position: absolute;
   bottom: 5px;
@@ -121,6 +124,7 @@ header button {
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
+  border: 1px solid #888;
 }
 
 /*-----------Search Results View-----------*/
@@ -136,6 +140,7 @@ header button {
 table, td, th {
   border: 1px solid #ddd;
   text-align: left;
+  overflow: scroll;
 }
 
 table {
@@ -175,7 +180,9 @@ th, td {
 
 .mini-recipe-card p {
   color: #FFF;
+  background-color: #14312A;
   margin: 0;
+
 }
 
 .popup {
@@ -184,15 +191,15 @@ th, td {
   width: 80%;
   overflow: scroll;
   background-color: #FFF;
+  margin: 15px;
 }
 
 .popup h3 {
-  text-decoration: underline;
   color: #14312A;
-  size: 1.5em;
 }
 
-.popup-content {
+#popup-content {
+  text-align: center;
   margin: auto;
   padding: 10px;
   border: 1px solid #888;
@@ -202,7 +209,8 @@ th, td {
   color: red;
   opacity: 0.5;
   float: right;
-  font-size: 2em;
+  margin-right: 5px;
+  font-size: 2.5em;
   font-weight: bold;
 }
 

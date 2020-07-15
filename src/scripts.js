@@ -129,7 +129,7 @@ function buildResultsSection(recipes) {
     <section class="recipe-card" id=${recipe.id}>
       <section class="card-head">
         <img class="card-image" src=${recipe.image}>
-        <button type="button" class="save-btn" id=${recipe.id}>Save Recipe</button>
+        <button type="button" class="save-btn" id=${recipe.id}>Save</button>
       </section>
       <section class="card-body">
         <button type="button" class="collapsible">${recipe.name}</button>
