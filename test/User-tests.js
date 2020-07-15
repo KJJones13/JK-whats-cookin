@@ -11,9 +11,9 @@ describe ("Users", function() {
   let user, recipe;
   beforeEach(function () {
     user = new User(usersData[0]);
-    recipe1 = new Recipes(recipeData[0])
-    recipe2 = new Recipes(recipeData[1])
-    recipe3 = new Recipes(recipeData[2])
+    recipe1 = new Recipes(recipeData[0]);
+    recipe2 = new Recipes(recipeData[1]);
+    recipe3 = new Recipes(recipeData[2]);
   });
 
   it ("should be a function", function() {
@@ -21,19 +21,19 @@ describe ("Users", function() {
   });
 
   it ("should be an instance of Users", function() {
-    expect (user).to.be.an.instanceof(User)
+    expect (user).to.be.an.instanceof(User);
   });
 
   it ("should start with an empty favorites list", function() {
-    expect (user.favoriteRecipes).to.deep.equal([])
+    expect (user.favoriteRecipes).to.deep.equal([]);
   });
 
   it ("should have a Pantry", function() {
-    expect (user.pantry).to.be.an.instanceof(Pantry)
+    expect (user.pantry).to.be.an.instanceof(Pantry);
   });
 
   it ("should be able to add favorite recipes to a list", function() {
-    user.addToFav(recipe1)
+    user.addToFav(recipe1);
 
     expect(user.favoriteRecipes.length).to.equal(1);
   });
@@ -64,23 +64,23 @@ describe ("Users", function() {
   it ("should be able to remove a recipe from the favorites list", function() {
     user.addToFav(recipe1);
     user.addToFav(recipe2);
-    user.addToFav(recipe3)
+    user.addToFav(recipe3);
     user.removeFromFav(recipe2);
 
     expect(user.favoriteRecipes).to.deep.equal([recipe1, recipe3]);
   });
 
   it ("should add/remove favorites based on the contents of the favorite recipes list", function() {
-    user.favoriteRecipe(recipe1)
-    user.favoriteRecipe(recipe2)
-    user.favoriteRecipe(recipe3)
-    user.favoriteRecipe(recipe2)
+    user.favoriteRecipe(recipe1);
+    user.favoriteRecipe(recipe2);
+    user.favoriteRecipe(recipe3);
+    user.favoriteRecipe(recipe2);
 
-    expect(user.favoriteRecipes).to.deep.equal([recipe1, recipe3])
+    expect(user.favoriteRecipes).to.deep.equal([recipe1, recipe3]);
   });
 
   it ("should start with an empty recipes to cook list", function() {
-    expect (user.recipesToCook).to.deep.equal([])
+    expect (user.recipesToCook).to.deep.equal([]);
   });
 
   it ("should be able to add recipes to a list", function() {
@@ -90,7 +90,7 @@ describe ("Users", function() {
   });
 
   it ("should not add to the to-cook list if it is undefined", function() {
-    user.addToCook(undefined)
+    user.addToCook(undefined);
     expect(user.recipesToCook.length).to.equal(0);
   })
 
@@ -106,9 +106,9 @@ describe ("Users", function() {
   });
 
   it ("should be able to filter favorite recipes", function() {
-    user.favoriteRecipe(recipe1)
-    user.favoriteRecipe(recipe2)
-    user.favoriteRecipe(recipe3)
+    user.favoriteRecipe(recipe1);
+    user.favoriteRecipe(recipe2);
+    user.favoriteRecipe(recipe3);
 
     expect(user.filterFavRecipes("snack")).to.deep.equal([recipe1]);
   });

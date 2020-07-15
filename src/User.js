@@ -1,7 +1,3 @@
-// const Pantry = require("../src/Pantry");
-// const recipeData = require("../data/recipes");
-// const ingredientsData = require("../data/ingredients");
-
 class User {
   constructor(user) {
     this.favoriteRecipes = [];
@@ -12,7 +8,7 @@ class User {
   }
 
   addToFav(recipe) {
-    if(typeof recipe === "object") {
+    if (typeof recipe === "object") {
       this.favoriteRecipes.push(recipe)
     }
   }
@@ -34,7 +30,7 @@ class User {
   }
 
   addToCook(recipe) {
-    if(typeof recipe === "object") {
+    if (typeof recipe === "object") {
       this.recipesToCook.push(recipe);
     }
   }
@@ -55,28 +51,21 @@ class User {
     return foundRecipes;
   }
   searchRecipes(userInput) {
+    let lowerCaseInput = userInput.toLowerCase()
     let foundRecipes = null;
     foundRecipes = recipeData.filter(recipe => {
 
-      if(recipe.name.includes(userInput)) {
+      if (recipe.name.toLowerCase().includes(lowerCaseInput)) {
         return recipe;
       }
-      if(recipe.tags.includes(userInput)) {
+      if (recipe.tags.includes(lowerCaseInput)) {
         return recipe;
       }
     })
 
     return foundRecipes;
   }
-  // searchByIngredient(userInput) {
-  //   let foundIngredient = ingredientsData.find(ingredient => {
-  //     return ingredient.name === userInput;
-  //   })
-  //   return foundIngredient;
-  // }
 }
-
-// if(recipe.tags.includes(userInput) || recipe.name.includes(userInput) || recipe.ingredients.includes(userInput)) {
 
 if (typeof module !== "undefined") {
   module.exports = User;

@@ -3,7 +3,6 @@ const expect = chai.expect;
 const Recipes = require("../src/recipes");
 const Ingredient = require("../src/Ingredient");
 const recipeData = require("../data/recipes");
-const ingredientData = require("../data/ingredients");
 
 describe ("Recipes", function() {
  let testData, recipe;

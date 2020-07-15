@@ -29,7 +29,7 @@ function openRecipeInfo() {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
       let content = this.nextElementSibling;
-      if (content.style.display=== "block") {
+      if (content.style.display === "block") {
         content.style.display = "none";
       } else {
         content.style.display = "block";
@@ -211,7 +211,7 @@ function displayUsers() {
 /*-----------Favorite Recipes-----------*/
 function findRecipe(recipeId) {
   return recipes.find(recipe => {
-    return recipe.id == recipeId
+    return recipe.id === recipeId
   })
 }
 
