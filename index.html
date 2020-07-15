@@ -19,7 +19,6 @@
         <button type="submit" class="search-btn">Search</button>
       </form>
       <section class="header-right">
-        <button type="button" class="grocery-list-btn">Grocery List</button>
         <button type="button" class="favorite-recipes-btn">Favorite Recipes</button>
         <button type="button" class="users-btn">Users</button>
       </section>
@@ -28,23 +27,16 @@
       <section class="view home-view"></section>
       <section class="view search-results-view hidden"></section>
       <section class="view user-view hidden">
-        <h2>User View</h2>
+        <h2>Users</h2>
       </section>
       <section class="view favorites-view hidden">
-        <h2>Favorite View</h2>
-        <form class="filter-bar" action="index.html" method="post">
-          <input type="text" placeholder="&#xf0b0; Filter Favorite Recipes" style="font-family: Arial, FontAwesome" name="search-entry" id="filter-entry">
-          <button type="submit" class="filter-btn">Filter</button>
-        </form>
+        <h2>Favorite Recipes</h2>
         <section class="popup" id="favorite-popup">
           <section id="popup-content">
             <span class="close">&times;</span>
           </section>
         </section>
         <section class="favorite-recipes-grid"></section>
-      </section>
-      <section class="view groceryList-view hidden">
-        <h2>Grocery List</h2>
       </section>
     </section>
     <script type="text/javascript" src="src/recipes.js"></script>
