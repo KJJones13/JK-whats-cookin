@@ -211,7 +211,7 @@ function displayUsers() {
 /*-----------Favorite Recipes-----------*/
 function findRecipe(recipeId) {
   return recipes.find(recipe => {
-    return recipe.id === recipeId
+    return recipe.id == recipeId
   })
 }
 
