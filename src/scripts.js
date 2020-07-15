@@ -3,11 +3,9 @@ const homeView = document.querySelector(".home-view");
 const userView = document.querySelector(".user-view");
 const favoriteView = document.querySelector(".favorites-view")
 const favoriteRecipeGrid = document.querySelector(".favorite-recipes-grid");
-const groceryView = document.querySelector(".groceryList-view");
 const searchView = document.querySelector(".search-results-view");
 /*-----------Buttons-----------*/
 const favRecipeBtn = document.querySelector(".favorite-recipes-btn");
-const groceryListBtn = document.querySelector(".grocery-list-btn");
 const usersBtn = document.querySelector(".users-btn");
 const homeBtn = document.querySelector(".home-btn");
 const searchBtn = document.querySelector(".search-btn");
@@ -21,7 +19,6 @@ let saveBtn;
 window.addEventListener('load', buildHomeView);
 homeBtn.addEventListener("click", changeView);
 favRecipeBtn.addEventListener("click", changeView);
-groceryListBtn.addEventListener("click", changeView);
 usersBtn.addEventListener("click", changeView);
 searchBtn.addEventListener("click", changeView);
 
@@ -166,7 +163,6 @@ function hideAllViews() {
   homeView.classList.add('hidden');
   userView.classList.add('hidden');
   favoriteView.classList.add('hidden');
-  groceryView.classList.add('hidden');
   searchView.classList.add('hidden');
 }
 
@@ -179,8 +175,6 @@ function changeView(event) {
   } else if (event.target.className === "favorite-recipes-btn") {
     favoriteView.classList.remove('hidden');
     displayFavoriteRecipes();
-  } else if (event.target.className === "grocery-list-btn") {
-    groceryView.classList.remove('hidden');
   } else if (event.target.className === "home-btn") {
     homeView.classList.remove('hidden');
   } else if (event.target.className === "search-btn") {
