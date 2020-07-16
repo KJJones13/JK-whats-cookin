@@ -10,12 +10,12 @@ JK What’s Cookin is a website that can generate a random user and recipes from
 This project was a paired-programming project for Turing School of Software and Design’s Front-End-Engineering program in Mod 2 of the 2005 inning. The project utilizes JavaScript, HTML, and CSS files while using git and Github for branching and version control.
 
 ## Set Up 
+Deployed site: https://kjjones13.github.io/JK-whats-cookin/
 
-1. Within your group, decide on one person to have the project repository on their Github account. This person will *fork* this repository - on the top right corner of the page, click the fork button. 
-2. Both group members should then clone down the forked repository (make sure that everyone is added as a collaborator as well). Since you don't want your project to be named "whats-cookin-starter-kit", add an optional argument after the repo url when cloning. The command should look like this: `git clone [remote-address] [what you want to name the repo]`.
-3. Once you have cloned the repo, change into the directory and install the project dependencies. Run npm install to install project dependencies.
-4. Run open src/index.html in the terminal to see the HTML page (you should see some boilerplate HTML displayed on the page)
-5. Make sure both members of your team are collaborators on the forked repo.
+To install this app:
+1. Clone the repo by running `git clone git@github.com:KJJones13/JK-whats-cookin.git <new directory name>`
+2. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` to install project dependencies.
+3. Run open index.html in the terminal to see the HTML page
 
 ## Functionality
 1. On the home view, the user has access to a number of different recipes. When they click on a recipe name, a drop down opens showing the user the recipes ingredients and instructions.
@@ -32,6 +32,12 @@ This project was a paired-programming project for Turing School of Software and 
 
 4. Users can also switch into the Users tab, which shows every user & their pantry. Currently, when the page loads, a random user's data is loaded into the site. Future iterations of this project include the ability to view the website from the perspective of a user of your choosing.
 ![](assets/jkw-User-view.gif)
+
+## Next Directions
+Moving forward, we have three primary objectives for this project:
+1) Add functionality so that users can choose recipes to cook & add them to a Grocery List.
+2) The ability to filter your favorite recipes by name, type, or ingredient
+3) Updating the Users page to allow the website to be viewed from the perspective of any user.
 
 ## Contributors
 This project represents the joint efforts of Kyle Jones and Jake West.
