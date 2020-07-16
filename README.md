@@ -34,10 +34,12 @@ To install this app:
 ![](assets/jkw-User-view.gif)
 
 ## Next Directions
-Moving forward, we have three primary objectives for this project:
-1) Add functionality so that users can choose recipes to cook & add them to a Grocery List.
-2) The ability to filter your favorite recipes by name, type, or ingredient
-3) Updating the Users page to allow the website to be viewed from the perspective of any user.
+
+1. Build out a pantry for the user to see what they currently have in their pantry.
+
+2. Allow the user to compare what they have in their pantry to a recipe that they would like to cook.
+
+3. Create a way for the user to compare their ingredients to the ingredients required to cook a meal, that will generate a shopping list for them of ingredients they are missing.
 
 ## Contributors
 This project represents the joint efforts of Kyle Jones and Jake West.
