@@ -26,3 +26,8 @@ The details of this project are outlined in the <a href="https://frontend.turing
 
 4. Users can also switch into the Users tab, which shows every user & their pantry. Currently, when the page loads, a random user's data is loaded into the site. Future iterations of this project include the ability to view the website from the perspective of a user of your choosing.
 ![](assets/jkw-User-view.gif)
+
+## Contributors
+This project represents the joint efforts of Kyle Jones and Jake West.
+* Kyle Jones Github: https://github.com/KJJones13
+* Jake West Github: https://github.com/jkwest-93
