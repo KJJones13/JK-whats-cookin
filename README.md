@@ -15,3 +15,14 @@ The details of this project are outlined in the <a href="https://frontend.turing
 1. On the home view, the user has access to a number of different recipes. When they click on a recipe name, a drop down opens showing the user the recipes ingredients and instructions.
 ![](assets/jkw-homepage.gif)
 ![](assets/jkw-homeview-dropdowns.gif)
+
+2. Users can favorite ingredients by hitting the save button. If the user hits the save button a second time, the ingredient is removed from their favorite recipes list. On the favorites page, a user can click on any recipe to see the required ingredients & it's instructions.
+![](assets/jkw-addFavorite.gif)
+![](assets/jkw-removeFavorite.gif)
+![](assets/jkw-favoritePopup.gif)
+
+3. Users can search for recipes by name or by recipe tag (i.e., snack, hors d'oeuvre) and return ingredients that match the search query.
+![](assets/jkw-search-pork.gif)
+
+4. Users can also switch into the Users tab, which shows every user & their pantry. Currently, when the page loads, a random user's data is loaded into the site. Future iterations of this project include the ability to view the website from the perspective of a user of your choosing.
+![](assets/jkw-User-view.gif)
