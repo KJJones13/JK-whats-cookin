@@ -3,6 +3,12 @@ Kyle Jones & Jake West, FE 2005
 
 The details of this project are outlined in the <a href="https://frontend.turing.io/projects/whats-cookin.html" target="\__blank">project spec</a>.
 
+
+## Discription
+JK What’s Cookin is a website that can generate a random user and recipes from a pre-existing database. Users can save recipes that they enjoy and search for recipes by name and type. Users can click on a recipe to see the required ingredients and instructions on how to make a recipe.
+
+This project was a paired-programming project for Turing School of Software and Design’s Front-End-Engineering program in Mod 2 of the 2005 inning. The project utilizes JavaScript, HTML, and CSS files while using git and Github for branching and version control.
+
 ## Set Up 
 
 1. Within your group, decide on one person to have the project repository on their Github account. This person will *fork* this repository - on the top right corner of the page, click the fork button. 
